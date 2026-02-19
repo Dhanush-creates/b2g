@@ -220,7 +220,7 @@ tailwind.config = {
               style="background:linear-gradient(135deg,#fbbf24,#f59e0b); color:#0a0f1e; box-shadow:0 0 20px rgba(251,191,36,0.3);">
               <i data-lucide="scan-line" class="w-4 h-4"></i> SCAN
             </button>
-            <input id="apiKeyInput" type="text" placeholder="Google Maps API Key (optional)"
+            <input id="apiKeyInput" type="text" placeholder="Mapbox Access Token (optional)"
               class="px-3 py-2 rounded-lg text-sm font-mono outline-none"
               style="background:#0f172a; border:1px solid var(--border); color:#e2e8f0; width:200px;"/>
         </div>
@@ -478,7 +478,7 @@ function performScan(){
       const iframe = document.getElementById('satelliteView');
       const apiKey = document.getElementById('apiKeyInput').value.trim();
       if(apiKey){
-        iframe.src = `https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${lat || 13.0101},${lng || 80.2330}&zoom=18&maptype=satellite`;
+        iframe.src = `https://api.mapbox.com/styles/v1/mapbox/satellite-v9.html?access_token=${apiKey}#18/${lat || 13.0101}/${lng || 80.2330}`;
       } else {
         iframe.src = `https://maps.google.com/maps?q=${lat || 13.0101},${lng || 80.2330}&output=embed&t=k&z=18`;
       }
